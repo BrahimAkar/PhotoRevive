@@ -15,9 +15,9 @@ class BaseResponse {
 @JsonSerializable()
 class AiModelMainFeatureResponse {
   @JsonKey(name: "mainFeatureTitle")
-  final String mainFeatureTitle;
+  final String? mainFeatureTitle;
   @JsonKey(name: "mainFeatureDescription")
-  final String mainFeatureDescription;
+  final String? mainFeatureDescription;
 
   AiModelMainFeatureResponse(
       this.mainFeatureTitle, this.mainFeatureDescription);
@@ -33,17 +33,17 @@ class AiModelMainFeatureResponse {
 @JsonSerializable()
 class AiModelResponse {
   @JsonKey(name: "id")
-  final String id;
+  final String? id;
   @JsonKey(name: "name")
-  final String name;
+  final String? name;
   @JsonKey(name: "description")
-  final String description;
+  final String? description;
   @JsonKey(name: "imageBefore")
-  final String imageBefore;
+  final String? imageBefore;
   @JsonKey(name: "imageAfter")
-  final String imageAfter;
+  final String? imageAfter;
   @JsonKey(name: "mainFeatures")
-  final List<AiModelMainFeatureResponse> mainFeatures;
+  final List<AiModelMainFeatureResponse>? mainFeatures;
 
   AiModelResponse(this.id, this.name, this.description, this.imageBefore,
       this.imageAfter, this.mainFeatures);
@@ -58,7 +58,7 @@ class AiModelResponse {
 @JsonSerializable()
 class HomeResponse extends BaseResponse {
   @JsonKey(name: "models")
-  final List<AiModelResponse> models;
+  final List<AiModelResponse>? models;
 
   factory HomeResponse.fromJson(Map<String, dynamic> json) =>
       _$HomeResponseFromJson(json);
